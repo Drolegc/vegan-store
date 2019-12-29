@@ -1,6 +1,7 @@
 # DRF
 from rest_framework import viewsets
-
+from rest_framework.filters import SearchFilter,OrderingFilter
+from django_filters.rest_framework import DjangoFilterBackend
 # Model
 from locales.models import Local
 
@@ -13,4 +14,4 @@ class LocalesViewSet(viewsets.ModelViewSet):
 
     queryset = Local.objects.all()
     serializer_class = LocalesSerializer
-    lookup_field = 'name'
+    filter_backends = (SearchFilter,DjangoFilterBackend,OrderingFilter)

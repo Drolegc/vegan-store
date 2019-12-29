@@ -9,7 +9,7 @@ from locales.serializers import LocalesSerializer
 
 class ItemsSerializer(serializers.ModelSerializer):
 
-    data_local = LocalesSerializer(source='local',read_only=True)
+    data_locales = LocalesSerializer(source='locales',read_only=True,many=True)
 
     class Meta:
 
@@ -18,11 +18,11 @@ class ItemsSerializer(serializers.ModelSerializer):
             'name',
             'price',
             'image',
-            'local',
-            'data_local',
+            'locales',
+            'data_locales',
             'fiabilidad_plus',
             'fiabilidad_minus',
             'created'
         ]
-        extra_kwargs = {'local':{'write_only':True}}
+        extra_kwargs = {'locales':{'write_only':True}}
 

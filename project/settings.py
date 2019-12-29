@@ -25,11 +25,12 @@ SECRET_KEY = '(3$pl4ocz9x1f82mrtd#xu5*apr=ds@wz62f+#g$-&_vdm#i&d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1','http://localhost:8080']
+ALLOWED_HOSTS = ['localhost','127.0.0.1','http://localhost:8080','192.168.1.21']
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:8080",
-    "http://127.0.0.1:9000"
+    "http://127.0.0.1:9000",
+    "http://192.168.1.21:8080",
 ]
 
 # Application definition
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     'items',
     'locales',
     'rest_framework',
+    
 ]
 
 MIDDLEWARE = [
