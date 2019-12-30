@@ -1,5 +1,7 @@
 # DRF
 from rest_framework import viewsets
+from rest_framework.filters import SearchFilter,OrderingFilter
+from django_filters.rest_framework import DjangoFilterBackend
 
 # Model
 from items.models import Items
@@ -13,4 +15,5 @@ class ItemsViewSet(viewsets.ModelViewSet):
 
     queryset = Items.objects.all()
     serializer_class = ItemsSerializer
-    lookup_field = 'name'
+    filter_backends = (SearchFilter,DjangoFilterBackend,OrderingFilter)
+
